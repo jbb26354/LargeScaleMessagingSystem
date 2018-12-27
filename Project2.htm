@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+
+<html xml:lang="en-US" dir="ltr" lang="en-US">
+
+  <head>
+    <!-- Slowly's Standard Webpage Template last updated 12-17-2013 -->
+    <!-- To add to Bluefish: as root copy to /usr/share/bluefish/templates -->
+    <!-- To add to BlueGriffon:  -->
+    <!-- To add to Dreamweaver: -->
+    
+    <!-- <link rel="openid.server" href="http://www.myopenid.com/server"> -->
+    <!-- <link rel="openid.delegate" href="http://Pudnik.myopenid.com/"> -->
+    
+    <title>ACO 420 Spring 2015 Project 2</title>
+    
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow, noarchive, nocache, nosnippet, noodp, noydir">
+    <meta name="Googlebot" content="noindex, nofollow, noarchive, nocache, nosnippet, noodp, noydir">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta name="Content-Type" content="text/html; charset=utf-8">
+    <meta name="author" content="Slowly">
+    
+    <style type="text/css">
+    
+    /* Last Updated for HTML 5 03-11-2015 */
+    @charset "utf-8";
+    BODY {font-family:Arial;max-width:800px;font-size:10pt;}
+    HEADER{display:block;text-align:center;}
+    NAV{display:block;padding:10px;font-size:10px;margin:5px;text-align:center;}
+    SECTION{max-width:98%;}
+    ARTICLE{margin: 10px;padding: 10px;border-radius: 10px;}
+    ASIDE{display:block;width:25%;float:left;margin: 15px;font-style: italic;}
+    FOOTER{clear: both;display: block;padding: 15px;}
+    H1,H2,H3,H4,H5,H6{page-break-after:avoid;}
+    P, TD, TH {font-family:Arial;font-size:10pt;}
+    LI {padding:5px;}
+    CODE {font-family:courier;font-size:10pt;}
+    PRE {font-size: 9pt;}
+  
+    /* Classes */
+    .SlapStamp
+    {
+      color: #F47D31;
+      background-color: #fff;
+      -webkit-box-shadow: 2px 2px 20px #888;
+      -webkit-transform: rotate(-45deg);
+      -moz-box-shadow: 2px 2px 20px #888;
+      -moz-transform: rotate(-45deg);
+      position: absolute;
+      padding: 0px 150px;
+      text-align:center;
+    }
+    .acmnSnippet {font-weight:bold;font-style:italic;}
+    .snippetMajor{font-weight:bold;color:blue;text-decoration:underline;font-style:italic;}
+    .assignment{border:1px green solid;font-weight:bold;}
+    .classDate{border:2px red solid;font-weight:bolder;text-decoration:underline;}
+    .acmnMyAnswer{border:1px black solid;}
+    .acmnDone{background-color: LightGrey;}
+    .acmnGroupProject{background-color: rgb(170, 255, 170);}
+    .acmnCodeIt{font-family:courier;}
+    .acmnUnderlineIt{text-decoration:underline;}
+    .acmnImportant1{color:red; font-weight:bold; font-size:12pt;font-family:sans-serif;}
+    .acmnImportant2{font-family:verdana;font-weight:bold;color:red;}
+    .smallRed{line-height:18.0pt;font-size:8pt;color:#A81817;}
+    .lightRed{color:#ff3300;}
+    .tiny{margin: 1px;font-size: 9px;}
+    .acmnImageCaption{margin: 2px;font-size: 12px;font-style:italic;}  
+    .greyAddressNormal{font-size:8pt;color:gray;}
+    .greyAddressItalic{font-size:12px;font-weight: 300;color:gray;font-style:italic}
+    .LimeLine{border-bottom: 2px solid #0bce7e;width:200px;}
+    .pinkItalic{font-style:italic;color:#EF118C;}
+    .acmnCursiveHandwriting{font-family: 'Edwardian Script ITC'; font-size:18pt; color: Navy;}
+    
+    /* stolen from CPI111 ASU Fall 2013 */
+    .bigLightGreen{color: #92C500;font-family: serif;font-weight: bold;font-size: 18pt;}
+    .pinkPale{background-color:#ffe1ff;}
+    .pinkkDashed{background-color:#ffe1ff;border:1px dashed black;}
+    .superTitle{font-size:24px;color:#315A6C;text-decoration:underline;}
+    .clsH0{font-size:48pt;font-weight:bolder;}
+    .clsH1{font-size:24pt;font-weight:bolder;}
+    .clsH2{font-size:18pt;font-weight:bolder;}
+    .clsH3{font-size:14pt;font-weight:bolder;}
+    .clsH4{font-size:12pt;font-weight:bold;}
+    .clsH5{font-size:10pt;font-weight:bold;}
+    .clsH6{font-size:8pt;font-weight:bold;}
+    }
+    .dropshadow 
+    {
+      -moz-box-shadow: 3px 3px 4px #999; /* Firefox */
+      -webkit-box-shadow: 3px 3px 4px #999; /* Safari/Chrome */
+      box-shadow: 3px 3px 4px #999; /* Opera and other CSS3 supporting browsers */
+      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')";/* IE 8 */
+      :progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999');/* IE 5.5 - 7 */ 
+    }
+    .cornflower 
+    {
+     background-color: #8CA4D4;
+     color: #2F2F65;
+     font-weight: bold;
+     font-size: 18px;
+    }
+    
+    /* Stolen from Eric Meyer meyerweb.com */
+    .skyBlue{background: #B4D5FF; font-weight: bold;}
+    .warningYellow {background: #FF8; color: red; border: 2px solid; padding: 1em;}
+    
+    /* Stolen from Stack Overflow */
+    .alert
+    {
+      padding:5px;
+      font-weight:bold;
+      margin-bottom:10px;
+      margin-top:5px;
+      border:2px dotted #AE0000;
+    }
+    .button
+    {
+      color:#3E6D8E;
+      background-color:#E0EAF1;
+      border-bottom:1px solid #3E6D8E;
+      border-right:1px solid #7F9FB6;
+      padding:3px 4px 3px 4px;
+      margin:2px 2px 2px 0;
+    }
+    .badge
+    {
+      color:#fff;
+      background-color:#333;
+      border:1px solid #333;
+      margin:0 3px 3px 0;
+      padding:0px 6px 0px 3px;
+      display:inline-block;
+    }
+    .interesting{background-color:#ffefc6;}
+    .orangeLight{font-family:Trebuchet MS;background-color:#ff9900;color:#fff;}
+    .orangeDark{background-color:#df5c13;padding:3px 15px 5px 38px;margin:2px 0px;color:white;}
+    
+    .warning
+    {
+      background-color:#E23535;
+      color:#FFFFFF;
+      font-size:10px;
+      padding:0 5px 1px;
+    }
+    
+    /* Stolen from javadoc */
+    .mauveDark{background:#BBBBFF;}
+    .mauveLight{background:#DDDDFF;}
+    .maroon{color:maroon;}
+    .darkBlue{background-color:#00008B;color:#FFFFFF;}
+    
+    /* Stolen from John Urbanek */
+    .blueBlack{background-color: #333333;color:#00CCFF;text-align:center;font-style:italic;}
+    .blueBold{color:#3366FF;font-weight:bolder;}
+    .maroonBold{color:maroon;font-weight:bold;}
+    .navy{color:navy;}
+    .navyBold{color:navy;font-weight:bold;}
+    .cyan{color:#2b91af;}
+    .cyanBold{color:#2b91af;font-weight:bold;}
+    .aqua{color:#0078C0;}
+    .aquaBold{color:#0078C0;font-weight:bold;}
+    
+    /* Stolen from Adobe */
+    .s0 {font-family: monospace; font-size: 10pt;}
+    .s1 {color: #58595B;font-size: 6pt;}
+    .s2 {color: #58595B;font-size: 8pt;}
+    .s3 {color: #58595B;font-size: 12pt;}
+    .s4 {color: #58595B;font-size: 14pt;}
+    .s5 {color: #58595B;font-size: 18pt;}
+    .s6 {color: #D31242;font-size: 8pt;}
+    .s7 {color: #D31242;font-size: 12pt;}
+    .s8 {color: #D31242;font-size: 14pt;}
+    .s9 {color: #D31242;font-size: 18pt;}
+    .s10 {color: #BE2D00; font-size: 24pt;}
+    .s11 {color: #BE2D00; font-size: 32pt;}
+    .s12 {color: #007DC5;font-weight: bold;font-size: 6pt;}
+    .s13 {color: #007DC5;font-weight: bold;font-size: 8pt;}
+    .s14 { color: #40458C; font-size: 8pt; }
+    .s15 { color: #40458C; font-size: 10pt; }
+    .s16 { color: #40458C; font-size: 12pt; }
+    .s17 { color: #40458C; font-style: italic; font-weight: bold; font-size: 12pt; }
+    .s18 { color: #40458C; font-size: 18pt; }
+    
+    /* stolen from Radek Suski and Protostar */
+    
+    .aqua1 {color:white;background-color:#61b6ff}
+    .aqua2 {color:white;background:#2892ff!important;}
+    .aqua3{color:yellow;background:#2e9fff;}
+    .aquaComplex
+    {
+      color:Yellow;
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#49afcd;
+      background-image:-webkit-linear-gradient(to bottom, #5bc0de, #2f96b4);
+      background-image:linear-gradient(to bottom, #5bc0de, #2f96b4);
+      background-repeat:repeat-x;  
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+      border-color:#2f96b4 #2f96b4 #1f6377;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)
+    }
+    .aqua5{color:white;background-color:#2f96b4;}
+    .teal1{background:#6fa42a;}
+    .teal2{background-color:#51a351;}
+    .greenieWhite{color:white;background:#4bad00;}
+    .yellow1{background:#ffc62e;}
+    .radekAlert
+    {
+      background:#a3aebc;
+      padding:10px 35px 10px 14px;
+      border:0;
+      border-radius:4px;
+      font-weight:700;
+      line-height:20px;
+      font-size:13px;
+      text-shadow:none;
+    }
+    .radekBigClose
+    {
+      float:right;
+      font-weight:700;
+      display:block;
+      font-size:20px;
+      opacity:.8;
+      padding:0!important;
+      background:none!important;
+    }
+    .btnBlue
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#004cd6;
+      background-image:-webkit-linear-gradient(to bottom, #0069d6, #0022d6);
+      background-image:linear-gradient(to bottom, #0069d6, #0022d6);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0069d6', endColorstr='#ff0022d6', GradientType=0);
+      border-color:#0022d6 #0022d6 #00168a;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)
+    }
+    .btn-warning
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#ff855c;
+      background-image:-webkit-linear-gradient(to bottom, #ff9c7b, #ff632e);
+      background-image:linear-gradient(to bottom, #ff9c7b, #ff632e);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff9c7b', endColorstr='#ffff632e', GradientType=0);
+      border-color:#ff632e #ff632e #e13900;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)
+    }
+    .btnSunburn
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#da4f49;
+      background-image:-webkit-linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-image:linear-gradient(to bottom, #ee5f5b, #bd362f);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+      border-color:#bd362f #bd362f #802420;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)
+    }
+    .btnInverse
+    {
+      text-shadow:0 -1px 0 rgba(0,0,0,.25);
+      background-color:#363636;
+      background-image:-webkit-linear-gradient(to bottom, #444, #222);
+      background-image:linear-gradient(to bottom, #444, #222);
+      background-repeat:repeat-x;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+      border-color:#222 #222 #000;
+      border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+      filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)
+    }
+    .btnFlesh{background-color:#ff632e;}
+    .btnPinkDark{background-color:#bd362f;}
+    .btnDarkie{background-color:#222;}
+    .hexGreen{color:#40a070;}
+    
+    /* stolen from waves.com */
+    .noscript
+    {
+      background-color: #ffc4c4;
+      border: 1px solid #7b0812;
+      border-radius: 5px;
+      color: #7b0812;
+      padding: 5px 10px;
+    }
+    
+    /* stolen from net-tuts */
+    .btnBlueBig
+    {
+      width:400px;
+      margin: 200px auto;
+      background: #014464;
+      background: -moz-linear-gradient(top, #0D658E, #0C577A 50%, #014D71 51%, #003E5C);
+      background: -webkit-gradient(linear, left top, left bottom, 
+                  color-stop(0, #0E658E), color-stop(.5, #0C577A), 
+                  color-stop(.5, #014D71), to(#003E5C));
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      border: 1px solid #368DBE;
+      border-top: 1px solid #C3D6DF;
+      -moz-box-shadow: 0 1px 3px black;
+      -webkit-box-shadow: 0 1px 3px black;
+      -box-shadow: 0 1px 3px black;  
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      color:blue;
+      font-size: 50px;
+      font-weight: bold;
+      text-shadow: 0 1px 0 #9FF;
+    }
+    .btnBlueSmall 
+    {
+      line-height: 1;
+      padding: 7px 10px;
+      font-weight: bold;
+      color: white;
+      background-color: #39c;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -khtml-border-radius: 5px;
+      border-radius: 5px;
+      -moz-box-shadow: 0 1px 3px black;
+      -webkit-box-shadow: 0 1px 3px black;
+      -khtml-box-shadow: 0 1px 3px black;
+      -box-shadow: 0 1px 3px black;  
+      text-shadow: 0 1px 0 black;
+    }
+    
+    /* stolen from GPH 211 syllabus Spring 2014 */
+    
+    .Estilo29 {font-size: 30px;color: #F7C709;}
+    .Estilo6 {color: #CC0000;font-size: 27px;} 
+    .Estilo40 {font-size: 26px; color: #660000; font-weight: bold;}
+    .Estilo50 {font-size: 22px; color: #660000; font-weight: bold;}
+    .Estilo44 {color: #660000; font-weight: bold;}
+    .Estilo34 {color: #87140E; font-weight: bold;}
+    .Estilo42 {color: #660000;}
+    .Estilo47 {color: #AA0000;}
+    .Estilo32 {font-size: 15px;color: #333333;font-weight: bold;}
+    .Estilo31 {color: #333333;}
+    
+    /* stolen from Torrent Freak */
+    .pinky2{background:#ff7ab2;}
+    .pinky3{background:#ff4794;}
+    .pinky4{background:#e0005e;}
+    .pinky5{color:white;background-color:#ff4794;border-bottom:2px solid #ff4794;}
+    .pinky5bold{background:#ff4794;color:white;margin:0 0 1em;text-shadow:0px 1px 1px #ad0048;font-size:1.1em;font-weight:600;}
+    .pinky6{background:#ff1476;border-bottom:2px solid #ad0048;}
+    .pinky7{background:#ff4794;}
+    .pinky8{background:#ff4794;padding:21px 8px 15px;}
+    .pinky9{background:#ff7ab2;}
+    .pinky10{color:#ff4794;}
+    .pinky12{color:#e0005e;}
+
+    /* stolen from Scala */
+    .aquaSlider 
+    {
+      color:#666666;
+      text-shadow: 0 1px 2px rgba(0,0,0,.5);
+      background:url(http://scala-ide.org/resources/images/bg.jpg) no-repeat top center #a6e5ec;
+      padding-top:15px;padding-bottom:15px;
+      -webkit-box-shadow: inset 0 10px 60px rgba(0,0,0,.5);
+      -moz-box-shadow: inset 0 10px 60px rgba(0,0,0,.5);
+    }
+    
+    </style>
+      
+  </head>
+    
+  <body>
+  
+    <table id="container" name="container" width="1024">
+    <tr><td>
+    <table id="content" name="content" style="border: 1px solid green;" width="99%">
+    <tr><td align="left" valign="top">
+      
+    <header>
+  <h5><em>Arizona State University</em></h5>
+  <h4>School of Mathematical and Natural Sciences</h4>
+  <h3>ACO 420: Large-scale Data Management (Spring 2015) </h3>
+  <h2>Project 2: Large-Scale Messaging System with HBase</h2>
+    </header>
+
+<h3><span class="p">Due </span>Tuesday, March 17<span class="h3">th </span>2015, <span class="p">before class starts.</span></h3>
+
+<p>This is a group project (two students per group). Weight: 15% of class grade.</p>
+
+<p>Implement a messaging system in Java:<br>
+
+<ul type="disc">
+    <li> create the table in HBase. It will have:  emailAddress, Date, Time, Title, Body</li>
+    <li>send message button = write a single record to the database for a single user - To.</li>
+    <li>refresh button = fill combo boxes. Big one with message Body, small one with emailAddress. Return logged in user's messages.</li>
+    <li>Pre-load the system with a dataset that contains 5,000 messages from 500 users (each user sent 10 messages to other users).</li>
+</ul>
+  
+<h3>Deliverables (Send by email to the instructor in a single Zip file):</h3>
+<ol type="1">
+<li>The source code of the system (Java files).</li>
+  <li>A single-page document (PDF) explaining:<br>
+    <ol type="a">
+      <li>Why HBase is a good data store for this application</li>
+      <li>What is the structure of the created HBase table(s)</li>
+    </ol>
+  i.  List the column families and their columns ii.  Explain the structure of the row keys</p>
+
+  <h3>Points will be deducted from your grade for failing to follow the above directions.</h3>
+<p>Notes</p>
+<p>the most important part is to decide what you want to use as the rowkey.</p>
+    
+    </td></tr></table>
+    </td></tr></table>
+  
+  </body>
+</html>
